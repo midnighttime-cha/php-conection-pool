@@ -36,7 +36,7 @@ rlimit_files = 4096
 rlimit_core = unlimited
 
 ; log file
-slowlog = /var/log/php5.6-fpm.slow.log
+slowlog = /var/log/[PHP Version]-fpm.slow.log
 ```
 
 -- pm.max_children คือจำนวน concurrent PHP-FPM workers ถ้าคุณต้องการรองรับ 200 user พร้อมกัน แนะนำตั้งค่า: 200–250 worker (ขึ้นกับ CPU/RAM) ตรวจสอบหน่วยความจำว่า worker ละ ~40–60 MB
@@ -44,7 +44,7 @@ slowlog = /var/log/php5.6-fpm.slow.log
 ## ปรับค่าใน php.ini
 - แก้ไขไฟล์ตามตัวอย่างต่อไปนี้
 ```
-sudo nano /etc/php/5.6/fpm/php.ini
+sudo nano /etc/php/[PHP Version]/fpm/php.ini
 ```
 
 - แก้ไขตามนี้
@@ -124,7 +124,7 @@ top -c | grep php-fpm
 
 ## Monitoring (Optional)
 ### สร้าง status page:
-- ใน /etc/php/5.6/fpm/pool.d/www.conf:
+- ใน /etc/php/[PHP Version]/fpm/pool.d/www.conf:
 ```
 pm.status_path = /status
 ```
